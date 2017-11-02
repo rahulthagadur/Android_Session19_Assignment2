@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
  */
 
 import okio.Buffer;
+
 public class CallAddr extends AsyncTask<String, Void, String> {
 
     Context context;
@@ -50,9 +51,10 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         super.onPreExecute();
     }
 
+    //    Loading the data from the Url in the background process .....
     @Override
     protected String doInBackground(String... params) {
-        OkHttpClient client =new OkHttpClient();
+        OkHttpClient client = new OkHttpClient();
         client.setConnectTimeout(120, TimeUnit.SECONDS); // connect timeout
         client.setReadTimeout(120, TimeUnit.SECONDS); // socket timeout
         //formBody.add("platform", "android");
@@ -80,6 +82,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         return result;
     }
 
+// Binding the Loaded data via OnWebServiceResult Object
 
     @Override
     protected void onPostExecute(String s) {
@@ -87,6 +90,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         Log.e("CallAddr", "service_type= " + Servicetype + " result= " + s);
         resultListener.getWebResponse(s, Servicetype);
     }
+
 
     private static String bodyToString(final Request request) {
 
