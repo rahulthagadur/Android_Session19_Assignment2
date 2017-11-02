@@ -13,6 +13,9 @@ import org.json.JSONObject;
 import com.example.thagadur.android_session19_assignment2.network.*;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ * Created by Thagadur on 11/2/2017.
+ */
 
 public class MainActivity extends AppCompatActivity implements OnWebServiceResult{
 
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements OnWebServiceResul
             CommonUtilities.showLoading(this, "Please wait...", false);
             call.execute();
         }else{
-            Toast.makeText(this, "Please check your internet connection!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Check the connection",Toast.LENGTH_SHORT).show();
         }
     }
 

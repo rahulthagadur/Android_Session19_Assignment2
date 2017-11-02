@@ -11,8 +11,9 @@ import android.widget.TextView;
 import java.util.List;
 
 /**
- * Created by me on 7/4/2016.
+ * Created by Thagadur on 11/2/2017.
  */
+
 public class CustomListAdapter extends BaseAdapter {
 
     Context context;

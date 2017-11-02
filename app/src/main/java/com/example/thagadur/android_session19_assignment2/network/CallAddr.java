@@ -14,12 +14,11 @@ import com.squareup.okhttp.Response;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+/**
+ * Created by Thagadur on 11/2/2017.
+ */
 
 import okio.Buffer;
-
-/**
- * Created by Preetika on 6/17/2016.
- */
 public class CallAddr extends AsyncTask<String, Void, String> {
 
     Context context;
@@ -29,10 +28,6 @@ public class CallAddr extends AsyncTask<String, Void, String> {
     OnWebServiceResult resultListener;
     CommonUtilities.SERVICE_TYPE Servicetype;
     Request request;
-    //RequestBody body=null;
-
-    public CallAddr(MainActivity context, String url, FormEncodingBuilder params, CommonUtilities.SERVICE_TYPE getData, MainActivity resultListener) {
-    }
 
 
     public Request getRequest() {
@@ -57,7 +52,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        OkHttpClient client = new OkHttpClient();
+        OkHttpClient client =new OkHttpClient();
         client.setConnectTimeout(120, TimeUnit.SECONDS); // connect timeout
         client.setReadTimeout(120, TimeUnit.SECONDS); // socket timeout
         //formBody.add("platform", "android");
@@ -65,7 +60,7 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         RequestBody body = formBody.build();
         Request request = new Request.Builder()
                 .url(url)
-                .post(body)
+                //.post(body)
                 .build();
         Log.e("CallAddr " + Servicetype, "url= " + url + " params= " + bodyToString(request));
         try {
@@ -83,20 +78,6 @@ public class CallAddr extends AsyncTask<String, Void, String> {
             ex.printStackTrace();
         }
         return result;
-       /* OkHttpClient client = new OkHttpClient();
-
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
-try {
-    Response response = client.newCall(request).execute();
-    return response.body().string();
-}
-catch (Exception e)
-{
-    return  null;
-}
-*/
     }
 
 

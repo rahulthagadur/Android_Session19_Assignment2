@@ -1,8 +1,9 @@
 package com.example.thagadur.android_session19_assignment2;
 
 /**
- * Created by me on 7/4/2016.
+ * Created by Thagadur on 11/2/2017.
  */
+
 public class DataHandler {
 
     int id, vote_count;
