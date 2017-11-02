@@ -57,9 +57,9 @@ public class CallAddr extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
-       /* OkHttpClient client =new OkHttpClient();
-//        client.setConnectTimeout(120, TimeUnit.SECONDS); // connect timeout
-//        client.setReadTimeout(120, TimeUnit.SECONDS); // socket timeout
+        OkHttpClient client = new OkHttpClient();
+        client.setConnectTimeout(120, TimeUnit.SECONDS); // connect timeout
+        client.setReadTimeout(120, TimeUnit.SECONDS); // socket timeout
         //formBody.add("platform", "android");
 
         RequestBody body = formBody.build();
@@ -82,8 +82,8 @@ public class CallAddr extends AsyncTask<String, Void, String> {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return result;*/
-        OkHttpClient client = new OkHttpClient();
+        return result;
+       /* OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
                     .url(url)
@@ -96,7 +96,7 @@ catch (Exception e)
 {
     return  null;
 }
-
+*/
     }
 
 
@@ -104,8 +104,8 @@ catch (Exception e)
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         Log.e("CallAddr", "service_type= " + Servicetype + " result= " + s);
-            resultListener.getWebResponse(s, Servicetype);
-        }
+        resultListener.getWebResponse(s, Servicetype);
+    }
 
     private static String bodyToString(final Request request) {
 
